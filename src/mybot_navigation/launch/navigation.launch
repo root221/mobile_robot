@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<launch>
+
+     <!--arg name="map_file" default="$(find mybot_navigation)/maps/test_map.yaml"/-->
+     <arg name="map_file" default="$(find mybot_navigation)/maps/WilloGarage_2.yaml"/>
+     <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />   
+
+
+     
+     
+     
+    <!--- Run AMCL -->
+    <node pkg="amcl" type="amcl" name="amcl" output="screen"> 
+        <param name="odom_frame_id" value="odom"/>
+        <param name="base_frame_id" value="chassis"/>
+        <remap from="/scan" to="mybot/laser/scan"/>
+   </node>
+    
+    
+    <node name="move_base" pkg="move_base" type="move_base" respawn="false">
+        <rosparam file="$(find mybot_navigation)/config/costmap_common_params.yaml" command="load" ns="global_costmap" /> 
+        <rosparam file="$(find mybot_navigation)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />  
+        <rosparam file="$(find mybot_navigation)/config/local_costmap_params.yaml" command="load" />        
+        <rosparam file="$(find mybot_navigation)/config/global_costmap_params.yaml" command="load" />        
+        <rosparam file="$(find mybot_navigation)/config/base_local_planner_params.yaml" command="load" />        
+    </node>
+
+
+
+</launch>
