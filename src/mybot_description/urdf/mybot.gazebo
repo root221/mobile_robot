@@ -23,6 +23,7 @@
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
       <robotBaseFrame>chassis</robotBaseFrame>
+      <publishWheelJointState>True</publishWheelJointState>
     </plugin>
   </gazebo>
 
