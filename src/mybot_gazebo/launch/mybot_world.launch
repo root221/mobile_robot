@@ -9,8 +9,8 @@
 
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <!-- arg name="world_name" value="worlds/willowgarage.world" /-->
-    <arg name="world_name" value="$(find mybot_gazebo)/worlds/turtlebot_playground.world" />
+    <arg name="world_name" value="worlds/willowgarage.world" />
+    <!-- arg name="world_name" value="$(find mybot_gazebo)/worlds/turtlebot_playground.world" /-->
     <arg name="paused" value="$(arg paused)"/>
     <arg name="use_sim_time" value="$(arg use_sim_time)"/>
     <arg name="gui" value="$(arg gui)"/>
@@ -27,9 +27,9 @@
 
   <!-- Spawn the robot into Gazebo -->
 
-  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model mybot" />
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -x -12 -y -17 -z 0 -model mybot" />
   
-  
+    
   
   
   
