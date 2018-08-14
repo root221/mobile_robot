@@ -3,7 +3,7 @@
 <launch>
 
      <!--arg name="map_file" default="$(find mybot_navigation)/maps/test_map.yaml"/-->
-     <arg name="map_file" default="$(find mybot_navigation)/maps/WilloGarage_2.yaml"/>
+     <arg name="map_file" default="$(find mybot_navigation)/maps/garage_map.yaml"/>
      <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />   
 
 
